@@ -1,0 +1,278 @@
+
+1.
+
+SQL> set linesize 120;
+SQL> set pagesize 120;
+SQL> set serveroutput on;
+SQL> @Question1;
+
+SET   SERVEROUTPUT ON
+<<big>>
+DECLARE
+      v_mine  NUMBER(4) := 500;
+       BEGIN
+  	<<small>>
+  	DECLARE
+      		v_mine  NUMBER(3) := 700;
+  	BEGIN
+      		dbms_output.put_line('Local V_MINE is here: ' || v_mine);
+     		dbms_output.put_line('Outer V_MINE is here: ' || big.v_mine);     
+      		big.v_mine := v_mine * 2;
+  	END;
+      dbms_output.put_line('Outer V_MINE is here: ' || v_mine);
+END;
+
+ 15  /
+
+Local V_MINE is here: 700                                                                                               
+Outer V_MINE is here: 500                                                                                               
+Outer V_MINE is here: 1400                                                                                              
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2A,B.
+
+SQL> show linesize
+linesize 80
+SQL> set linesize 120;
+SQL> set pagesize 120;
+SQL> set serveroutput on;
+SQL> DECLARE
+  2  v_string VARCHAR2 (40);
+  3  v_num NUMBER (8,2);
+  4  v_constant CONSTANT VARCHAR2 (4) := '704B';
+  5  v_boolean BOOLEAN;
+  6  v_date DATE := TRUNC(SYSDATE + 7);
+  7  BEGIN
+  8  dbms_output.put_line('Constant variable contains ' || v_constant);
+  9  dbms_output.put_line('One week from today is ' || v_date);
+ 10  END;
+ 11  /
+Constant variable contains 704B                                                                                         
+One week from today is 26-SEP-18                                                                                        
+
+PL/SQL procedure successfully completed.
+
+
+2C.
+
+SQL> show pagesize;
+pagesize 120
+SQL> DECLARE
+  2  v_string VARCHAR2 (40);
+  3  v_num NUMBER (8,2);
+  4  v_constant CONSTANT VARCHAR2 (4) := '704B';
+  5  v_boolean BOOLEAN;
+  6  v_date DATE := TRUNC(SYSDATE +7);
+  7  BEGIN
+  8  IF v_string = 'SQL'
+  9  THEN dbms_output.put_line('Name of the Course is ' || v_string);
+ 10  ELSIF v_constant = '704B'
+ 11  THEN
+ 12  IF v_string IS NOT NULL
+ 13  THEN
+ 14  dbms_output.put_line('Course name is ' || v_string ||' and the room is ' ||v_constant);
+ 15  ELSE dbms_output.put_line('Course is unknown'||' and the room is '||v_constant);
+ 16  END IF;
+ 17  ELSE dbms_output.put_line('Course and location'||' could not be determined');
+ 18  END IF;
+ 19  END;
+ 20  /
+Course is unknown and the room is 704B                                                                                  
+
+PL/SQL procedure successfully completed.
+2D.
+SQL> DECLARE
+  2  v_string VARCHAR2 (40) := 'C++ advanced';
+  3  v_num NUMBER (8,2);
+  4  v_constant CONSTANT VARCHAR2 (4) := '704B';
+  5  v_boolean BOOLEAN;
+  6  v_date DATE := TRUNC(SYSDATE +7);
+  7  BEGIN
+  8  IF v_string = 'SQL'
+  9  THEN dbms_output.put_line('Name of the Course is ' || v_string);
+ 10  ELSIF v_constant = '704B'
+ 11  THEN
+ 12  IF v_string IS NOT NULL
+ 13  THEN
+ 14  dbms_output.put_line('Course name is ' || v_string ||' and the room is ' ||v_constant);
+ 15  ELSE dbms_output.put_line('Course is unknown'||' and the room is '||v_constant);
+ 16  END IF;
+ 17  ELSE dbms_output.put_line('Course and location'||' could not be determined');
+ 18  END IF;
+ 19  END;
+ 20  /
+Course name is C++ advanced and the room is 704B                                                                        
+
+PL/SQL procedure successfully completed.
+
+
+2E. 
+Course is unknown and the room is 704B     
+
+Course name is C++ advanced and the room is 704B     
+
+                                                                                                                                               
+3a.
+
+SQL> Create TABLE Lab1_tab (
+  2  ID NUMBER,
+  3  LName VARCHAR(20) );
+Create TABLE Lab1_tab (
+             *
+Table created.
+
+3b.
+
+SQL> CREATE SEQUENCE Lab1_seq
+  2  START WITH 1
+  3  INCREMENT BY 5;
+
+Sequence created.
+
+
+
+
+3c(a-g).
+SQL> 
+DECLARE
+    v_LName student.last_name%TYPE;
+    v_ID student.student_ID%TYPE;
+BEGIN
+    BEGIN
+	
+    SELECT last_name
+    INTO v_LName
+    FROM student
+    where student_ID IN (
+				SELECT student_ID
+				from Enrollment
+				Group BY student_ID
+				HAVING COUNT(*) = (
+							SELECT MAX(COUNT(student_ID))
+						      FROM Enrollment
+						      GROUP BY student_ID))
+    AND LENGTH(last_name) < 9;
+   
+   INSERT INTO Lab1_tab
+   VALUES (Lab1_seq.NEXTVAL, v_LName);
+   
+   EXCEPTION
+   WHEN TOO_MANY_ROWS THEN
+   		v_lname := 'Multiple Names';
+   
+   END;
+  
+   BEGIN
+   
+    SELECT last_name
+    INTO v_LName
+    FROM student
+    where student_ID IN (
+				SELECT student_ID
+				from Enrollment
+				Group BY student_ID
+				HAVING COUNT(student_ID) = (
+							SELECT MIN(COUNT(student_ID))
+								  FROM Enrollment
+								  GROUP BY student_ID));
+   EXCEPTION
+   WHEN TOO_MANY_ROWS THEN
+   		v_lname := 'Multiple Names'; 
+		
+    INSERT INTO Lab1_tab
+   VALUES (Lab1_seq.NEXTVAL, v_LName);		
+   
+   
+   END;
+
+   BEGIN
+   
+    SELECT last_name
+    INTO v_LName
+    FROM INSTRUCTOR 
+    where INSTRUCTOR_ID IN (
+					SELECT INSTRUCTOR_ID
+					from SECTION
+					Group BY INSTRUCTOR_ID
+					HAVING COUNT(INSTRUCTOR_ID) = (
+							
+							SELECT MIN(COUNT(INSTRUCTOR_ID))
+							 FROM SECTION
+							 GROUP BY INSTRUCTOR_ID))
+    AND last_name NOT LIKE '%s';               
+
+   INSERT INTO Lab1_tab
+   VALUES (V_ID, v_LName);	
+   
+   EXCEPTION
+   WHEN TOO_MANY_ROWS THEN
+   		v_lname := 'Multiple Names';  
+ 
+   END;
+
+   
+   BEGIN
+   
+    SELECT last_name
+    INTO v_LName
+    FROM INSTRUCTOR 
+    where INSTRUCTOR_ID IN (
+					SELECT INSTRUCTOR_ID
+					from SECTION
+					Group BY INSTRUCTOR_ID
+					HAVING COUNT(INSTRUCTOR_ID) = (
+								SELECT 											MAX(COUNT(INSTRUCTOR_ID))
+								FROM SECTION
+								GROUP BY INSTRUCTOR_ID))
+    AND last_name NOT LIKE '%s';
+						  
+   EXCEPTION
+   WHEN TOO_MANY_ROWS THEN
+   		v_lname := 'Multiple Names'; 
+
+   INSERT INTO Lab1_tab
+   VALUES (LAB1_seq.NEXTVAL, v_LName);		
+		
+   
+   END; 
+END;   
+
+
+
+SQL> SELECT * FROM LAB1_TAB;
+
+        ID LNAME
+---------- --------------------
+       266 Williams
+       271 Multiple Names
+           Lowry
+       276 Multiple Names
+
+SQL> spool off;
+
+
+
+DBS501 LAB 1 By LE, SEAN            Teacher: Nebojsa
+
