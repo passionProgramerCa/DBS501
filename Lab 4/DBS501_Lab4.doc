@@ -1,0 +1,181 @@
+SQL> @dbs501_lab4_1;
+
+Procedure created.
+
+Last day of the month 11/09 is monday                                                                                             
+Number of stored objects of type P is 3                                                                                           
+
+PL/SQL procedure successfully completed.
+
+Last day of the month 12/09 is thursday                                                                                           
+Number of stored objects of type f is 2                                                                                           
+
+PL/SQL procedure successfully completed.
+
+Last day of the month 01/10 is sunday                                                                                             
+You have entered an Invalid letter for the stored object. Try P, F or B.                                                          
+
+PL/SQL procedure successfully completed.
+
+You have entered an Invalid FORMAT for the MONTH and YEAR. Try MM/YY                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> @dbs501_lab4_2;
+
+Procedure created.
+
+
+PL/SQL procedure successfully completed.
+
+
+FLAG                                                                                                                              
+--------------------------------                                                                                                  
+SUCCESS                                                                                                                           
+
+
+    ZIPNUM                                                                                                                        
+----------                                                                                                                        
+         2                                                                                                                        
+
+
+ZIP   CITY                      ST CREATED_BY                     CREATED_D MODIFIED_BY                    MODIFIED_              
+----- ------------------------- -- ------------------------------ --------- ------------------------------ ---------              
+48104 Ann Arbor                 MI AMORRISO                       03-AUG-99 ARISCHER                       24-NOV-99              
+18104 Chicago                   MI DBS501_183A19                  14-NOV-18 DBS501_183A19                  14-NOV-18              
+
+
+Rollback complete.
+
+This ZIPCODE 48104 is already in the Database. Try again.                                                                         
+
+PL/SQL procedure successfully completed.
+
+
+FLAG                                                                                                                              
+--------------------------------                                                                                                  
+FAILURE                                                                                                                           
+
+
+    ZIPNUM                                                                                                                        
+----------                                                                                                                        
+         1                                                                                                                        
+
+
+ZIP   CITY                      ST CREATED_BY                     CREATED_D MODIFIED_BY                    MODIFIED_              
+----- ------------------------- -- ------------------------------ --------- ------------------------------ ---------              
+48104 Ann Arbor                 MI AMORRISO                       03-AUG-99 ARISCHER                       24-NOV-99              
+
+
+Rollback complete.
+
+SQL> @dbs501_lab4_3;
+
+Function created.
+
+
+Procedure created.
+
+
+PL/SQL procedure successfully completed.
+
+
+FLAG                                                                                                                              
+--------------------------------                                                                                                  
+SUCCESS                                                                                                                           
+
+
+    ZIPNUM                                                                                                                        
+----------                                                                                                                        
+         2                                                                                                                        
+
+
+ZIP   CITY                      ST CREATED_BY                     CREATED_D MODIFIED_BY                    MODIFIED_              
+----- ------------------------- -- ------------------------------ --------- ------------------------------ ---------              
+48104 Ann Arbor                 MI AMORRISO                       03-AUG-99 ARISCHER                       24-NOV-99              
+18104 Chicago                   MI DBS501_183A19                  14-NOV-18 DBS501_183A19                  14-NOV-18              
+
+
+Rollback complete.
+
+This ZIPCODE 48104 is already in the Database. Try again.                                                                         
+
+PL/SQL procedure successfully completed.
+
+
+FLAG                                                                                                                              
+--------------------------------                                                                                                  
+FAILURE                                                                                                                           
+
+
+    ZIPNUM                                                                                                                        
+----------                                                                                                                        
+         1                                                                                                                        
+
+
+ZIP   CITY                      ST CREATED_BY                     CREATED_D MODIFIED_BY                    MODIFIED_              
+----- ------------------------- -- ------------------------------ --------- ------------------------------ ---------              
+48104 Ann Arbor                 MI AMORRISO                       03-AUG-99 ARISCHER                       24-NOV-99              
+
+
+Rollback complete.
+
+SQL> @dbs501_lab4_4;
+
+Function created.
+
+
+LAST_NAME                                                                                                                         
+-------------------------                                                                                                         
+Instructor_Status                                                                                                                 
+----------------------------------------------------------------------------------------------------------------------------------
+Chow                                                                                                                              
+This Instructor is NOT scheduled to teach                                                                                         
+                                                                                                                                  
+Frantzen                                                                                                                          
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+Hanks                                                                                                                             
+This Instructor will teach 9 courses                                                                                              
+                                                                                                                                  
+Lowry                                                                                                                             
+This Instructor will teach 9 courses                                                                                              
+                                                                                                                                  
+Morris                                                                                                                            
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+Pertez                                                                                                                            
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+Schorin                                                                                                                           
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+Smythe                                                                                                                            
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+Willig                                                                                                                            
+This Instructor is NOT scheduled to teach                                                                                         
+                                                                                                                                  
+Wojick                                                                                                                            
+This Instructor will teach 10 course and needs a vacation                                                                         
+                                                                                                                                  
+
+10 rows selected.
+
+
+PL/SQL procedure successfully completed.
+
+
+MESSAGE                                                                                                                           
+--------------------------------------------------------------------------------------------------------------------------------  
+There is NO such instructor                                                                                                       
+
+
+PL/SQL procedure successfully completed.
+
+
+MESSAGE                                                                                                                           
+--------------------------------------------------------------------------------------------------------------------------------  
+This Instructor is NOT scheduled to teach                                                                                         
+
+SQL> spool off;

@@ -1,0 +1,124 @@
+SQL> @DBS501_Lab5_1;
+
+Function created.
+
+
+PL/SQL procedure successfully completed.
+
+
+DESCRIPTION                                                                                                                       
+--------------------------------------------------------------------------------------------------------------------------------  
+Course Description for Section Id 150 is Intro to Java Programming                                                                
+
+
+PL/SQL procedure successfully completed.
+
+
+DESCRIPTION                                                                                                                       
+--------------------------------------------------------------------------------------------------------------------------------  
+There is NO such Section id: 999                                                                                                  
+
+SQL> @DBS501_Lab5_2;
+
+Procedure created.
+
+The index is : 1 and the table value is: 02-DEC-18                                                                                
+The index is : 2 and the table value is: 03-DEC-18                                                                                
+The index is : 3 and the table value is: 04-DEC-18                                                                                
+The index is : 4 and the table value is: 05-DEC-18                                                                                
+The index is : 5 and the table value is: 06-DEC-18                                                                                
+The index is : 6 and the table value is: 09-DEC-18                                                                                
+The index is : 7 and the table value is: 10-DEC-18                                                                                
+The index is : 8 and the table value is: 11-DEC-18                                                                                
+The index is : 9 and the table value is: 12-DEC-18                                                                                
+The index is : 10 and the table value is: 13-DEC-18                                                                               
+The index is : 11 and the table value is: 16-DEC-18                                                                               
+The index is : 12 and the table value is: 17-DEC-18                                                                               
+The index is : 13 and the table value is: 18-DEC-18                                                                               
+The index is : 14 and the table value is: 19-DEC-18                                                                               
+The index is : 15 and the table value is: 20-DEC-18                                                                               
+The index is : 16 and the table value is: 23-DEC-18                                                                               
+The index is : 17 and the table value is: 24-DEC-18                                                                               
+The index is : 18 and the table value is: 25-DEC-18                                                                               
+The index is : 19 and the table value is: 26-DEC-18                                                                               
+The index is : 20 and the table value is: 27-DEC-18                                                                               
+The index is : 21 and the table value is: 30-DEC-18                                                                               
+The index is : 22 and the table value is: 31-DEC-18                                                                               
+The index is : 23 and the table value is: 01-JAN-19                                                                               
+The index is : 24 and the table value is: 02-JAN-19                                                                               
+The index is : 25 and the table value is: 03-JAN-19                                                                               
+The index is : 26 and the table value is: 06-JAN-19                                                                               
+The index is : 27 and the table value is: 07-JAN-19                                                                               
+The index is : 28 and the table value is: 08-JAN-19                                                                               
+The index is : 29 and the table value is: 09-JAN-19                                                                               
+The index is : 30 and the table value is: 10-JAN-19                                                                               
+
+PL/SQL procedure successfully completed.
+
+The index is : 1 and the table value is: 09-DEC-18                                                                                
+The index is : 2 and the table value is: 10-DEC-18                                                                                
+The index is : 3 and the table value is: 11-DEC-18                                                                                
+The index is : 4 and the table value is: 12-DEC-18                                                                                
+The index is : 5 and the table value is: 13-DEC-18                                                                                
+The index is : 6 and the table value is: 16-DEC-18                                                                                
+The index is : 7 and the table value is: 17-DEC-18                                                                                
+The index is : 8 and the table value is: 18-DEC-18                                                                                
+The index is : 9 and the table value is: 19-DEC-18                                                                                
+The index is : 10 and the table value is: 20-DEC-18                                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> @DBS501_Lab5_3;
+
+Package created.
+
+
+Package body created.
+
+The index is : 1 and the table value is: 02-DEC-18                                                                                
+The index is : 2 and the table value is: 03-DEC-18                                                                                
+The index is : 3 and the table value is: 04-DEC-18                                                                                
+The index is : 4 and the table value is: 05-DEC-18                                                                                
+The index is : 5 and the table value is: 06-DEC-18                                                                                
+The index is : 6 and the table value is: 09-DEC-18                                                                                
+The index is : 7 and the table value is: 10-DEC-18                                                                                
+The index is : 8 and the table value is: 11-DEC-18                                                                                
+The index is : 9 and the table value is: 12-DEC-18                                                                                
+The index is : 10 and the table value is: 13-DEC-18                                                                               
+The index is : 11 and the table value is: 16-DEC-18                                                                               
+The index is : 12 and the table value is: 17-DEC-18                                                                               
+The index is : 13 and the table value is: 18-DEC-18                                                                               
+The index is : 14 and the table value is: 19-DEC-18                                                                               
+The index is : 15 and the table value is: 20-DEC-18                                                                               
+The index is : 16 and the table value is: 23-DEC-18                                                                               
+The index is : 17 and the table value is: 24-DEC-18                                                                               
+The index is : 18 and the table value is: 25-DEC-18                                                                               
+The index is : 19 and the table value is: 26-DEC-18                                                                               
+The index is : 20 and the table value is: 27-DEC-18                                                                               
+The index is : 21 and the table value is: 30-DEC-18                                                                               
+The index is : 22 and the table value is: 31-DEC-18                                                                               
+The index is : 23 and the table value is: 01-JAN-19                                                                               
+The index is : 24 and the table value is: 02-JAN-19                                                                               
+The index is : 25 and the table value is: 03-JAN-19                                                                               
+The index is : 26 and the table value is: 06-JAN-19                                                                               
+The index is : 27 and the table value is: 07-JAN-19                                                                               
+The index is : 28 and the table value is: 08-JAN-19                                                                               
+The index is : 29 and the table value is: 09-JAN-19                                                                               
+The index is : 30 and the table value is: 10-JAN-19                                                                               
+
+PL/SQL procedure successfully completed.
+
+The index is : 1 and the table value is: 09-DEC-18                                                                                
+The index is : 2 and the table value is: 10-DEC-18                                                                                
+The index is : 3 and the table value is: 11-DEC-18                                                                                
+The index is : 4 and the table value is: 12-DEC-18                                                                                
+The index is : 5 and the table value is: 13-DEC-18                                                                                
+The index is : 6 and the table value is: 16-DEC-18                                                                                
+The index is : 7 and the table value is: 17-DEC-18                                                                                
+The index is : 8 and the table value is: 18-DEC-18                                                                                
+The index is : 9 and the table value is: 19-DEC-18                                                                                
+The index is : 10 and the table value is: 20-DEC-18                                                                               
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off
