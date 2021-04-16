@@ -15,7 +15,8 @@ v_num_stud NUMBER
 v_total NUMBER := 0;
 v_total_students NUMBER;
 t_course t_rec;
-
+-- that is how you are going to use the t_course record, like new in the Java 
+-- ? WHAT IS DISTINCT MEAN 
 CURSOR c_zip IS Select ZIP, COUNT(STUDENT_ID) 
 FROM (SELECT DISTINCT s.zip, s.student_id from Student s
 LEFT JOIN enrollment e
@@ -31,7 +32,7 @@ IF(v_total_students > 0) THEN
 OPEN c_zip;
 LOOP
 FETCH c_zip INTO t_course;
-EXIT WHEN c_zip%NOTFOUND;
+EXIT WHEN c_zip%NOTFOUND; 
 DBMS_OUTPUT.PUT_LINE('Zip code: ' || t_course.v_zip || ' has exactly ' || t_course.v_num_stud || ' students enrolled.');
 v_total := v_total + 1;
 END LOOP;
